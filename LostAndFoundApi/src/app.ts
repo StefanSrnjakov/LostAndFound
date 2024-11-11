@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRoutes from './routes/userRoutes';
+import itemRoutes from './routes/itemsRoutes';
 import cors from 'cors';
 import path from 'path';
 dotenv.config();
@@ -15,6 +16,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api', userRoutes);
+app.use('/api', itemRoutes);
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 
