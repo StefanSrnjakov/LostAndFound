@@ -46,56 +46,63 @@ const FoundItems: React.FC = () => {
                 Found Items
             </Typography>
             <Typography variant="subtitle1" align="center" color="text.secondary" sx={{ mb: 4 }}>
-                Browse through items that have been found and reported. Use filters to refine your search.
-            </Typography>
-
-            {/* Collapsible Filter Section */}
-            <Box textAlign="center" mb={3}>
-                <IconButton onClick={() => setFiltersOpen(!filtersOpen)} aria-label="toggle filters">
-                    <FilterListIcon color="primary" />
-                    {filtersOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-                </IconButton>
-                <Typography variant="h6" color="text.secondary" display="inline" sx={{ ml: 1 }}>
-                    Filters
-                </Typography>
-            </Box>
-
-            <Collapse in={filtersOpen}>
-                <Box display="flex" justifyContent="center" gap={2} flexWrap="wrap" mb={4}>
-                    <Autocomplete
-                        multiple
-                        options={LOCATIONS}
-                        value={locations}
-                        onChange={(event, newValue) => setLocations(newValue)}
-                        renderInput={(params) => (
-                            <TextField
-                                {...params}
-                                label="Filter by Location"
-                                variant="outlined"
-                                InputProps={{
-                                    ...params.InputProps,
-                                    startAdornment: (
-                                        <>
-                                            <LocationOnIcon sx={{ color: 'primary.main', mr: 1 }} />
-                                            {params.InputProps.startAdornment}
-                                        </>
-                                    ),
-                                }}
-                            />
-                        )}
-                        sx={{ minWidth: 200, maxWidth: 300 }}
-                    />
-                    <Autocomplete
-                        multiple
-                        options={CATEGORIES}
-                        value={categories}
-                        onChange={(event, newValue) => setCategories(newValue)}
-                        renderInput={(params) => (
-                            <TextField
-                                {...params}
-                                label="Filter by Category"
-                                variant="outlined"
-                                InputProps={{
+                Browse through items that have b
+                                {...p
+                                > setFiltersOpen(!filtersOpen)} aria-label="toggle filters">
+                                <FilterListIcon color="primary" />
+                                {filtersOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                            </IconButton>
+                            <Typography variant="h6" color="text.secondary" display="inline" sx={{ ml: 1 }}>
+                                Filters
+                            </Typography>
+                        </Box>
+            
+                        <Collapse in={filtersOpen}>
+                            <Box display="flex" justifyContent="center" gap={2} flexWrap="wrap" mb={4}>
+                                <Autocomplete
+                                    multiple
+                                    options={LOCATIONS}
+                                    value={locations}
+                                    onChange={(event, newValue) => setLocations(newValue)}
+                                    renderInput={(params) => (
+                                        <TextField
+                                            {...params}> setFiltersOpen(!filtersOpen)} aria-label="toggle filters">
+                                            <FilterListIcon color="primary" />
+                                            {filtersOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                                        </IconButton>
+                                        <Typography variant="h6" color="text.secondary" display="inline" sx={{ ml: 1 }}>
+                                            Filters
+                                        </Typography>
+                                    </Box>
+                        
+                                    <Collapse in={filtersOpen}>
+                                        <Box display="flex" justifyContent="center" gap={2} flexWrap="wrap" mb={4}>
+                                            <Autocomplete
+                                                multiple
+                                                options={LOCATIONS}
+                                                value={locations}
+                                                onChange={(event, newValue) => setLocations(newValue)}
+                                                renderInput={(params) => (
+                                                    <TextField
+                                                        {...params}> setFiltersOpen(!filtersOpen)} aria-label="toggle filters">
+                                                        <FilterListIcon color="primary" />
+                                                        {filtersOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                                                    </IconButton>
+                                                    <Typography variant="h6" color="text.secondary" display="inline" sx={{ ml: 1 }}>
+                                                        Filters
+                                                    </Typography>
+                                                </Box>
+                                    
+                                                <Collapse in={filtersOpen}>
+                                                    <Box display="flex" justifyContent="center" gap={2} flexWrap="wrap" mb={4}>
+                                                        <Autocomplete
+                                                            multiple
+                                                            options={LOCATIONS}
+                                                            value={locations}
+                                                            onChange={(event, newValue) => setLocations(newValue)}
+                                                            renderInput={(params) => (
+                                                                <TextField
+                                                                    {...params}
                                     ...params.InputProps,
                                     startAdornment: (
                                         <>

@@ -13,20 +13,6 @@ const Login: React.FC = () => {
     try { 
       setLocalError(null);
       await login(email, password);
-    } catch (err) {
-      setLocalError('Login failed. Please check your email or password.');
-    }
-  };
-
-  return (
-    <Container maxWidth="sm" sx={{ mt: 8, py: 4, boxShadow: 3, borderRadius: 2, bgcolor: 'background.paper' }}>
-      <Typography variant="h4" gutterBottom align="center" color="primary">
-        Welcome Back!
-      </Typography>
-      <Typography variant="subtitle1" align="center" sx={{ mb: 3, color: 'text.secondary' }}>
-        Please log in to continue
-      </Typography>
-
       {localError && (
         <Typography color="error" align="center" sx={{ mb: 2 }}>
           {localError}
@@ -74,6 +60,42 @@ const Login: React.FC = () => {
             gap: 1,
           }}
         >
+           <TextField
+          label="Password"
+          variant="outlined"
+          type="password"
+          fullWidth
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          helperText="Enter your password"
+        />
+
+        <Button
+         <TextField
+         label="Password"
+         variant="outlined"
+         type="password"
+         fullWidth
+         value={password}
+         onChange={(e) => setPassword(e.target.value)}
+         required
+         helperText="Enter your password"
+       />
+
+       <Button
+        <TextField
+        label="Password"
+        variant="outlined"
+        type="password"
+        fullWidth
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        required
+        helperText="Enter your password"
+      />
+
+      <Button
           {loading ? <CircularProgress size={24} color="inherit" /> : 'Login'}
         </Button>
       </Box>
