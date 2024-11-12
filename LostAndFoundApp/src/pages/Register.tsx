@@ -12,6 +12,25 @@ const Register: React.FC = () => {
     password: '',
     repeatPassword: '',
   });
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const navigate = useNavigate();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError(null);
+    setLoading(true);
+
+    // Check if passwords match
+    if (formData.password !== formData.repeatPassword) {
+      setError("Passwords don't match.");
+      setLoading(false);
       return;
     }
 
@@ -80,26 +99,6 @@ const Register: React.FC = () => {
           onChange={handleChange}
           helperText="Select your date of birth"
         />
-         <TextField
-          label="Last Name"
-          name="surname"
-          variant="outlined"
-          required
-          value={formData.surname}
-          onChange={handleChange}
-          helperText="Enter your last name"
-        />
-        <TextField
-         <TextField
-         label="Last Name"
-         name="surname"
-         variant="outlined"
-         required
-         value={formData.surname}
-         onChange={handleChange}
-         helperText="Enter your last name"
-       />
-       <TextField
         <TextField
           label="Email Address"
           name="email"

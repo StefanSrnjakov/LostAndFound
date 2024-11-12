@@ -13,19 +13,14 @@ const SessionExpired: React.FC = () => {
         <Container maxWidth="sm" style={{ textAlign: 'center', marginTop: '20vh' }}>
             <Box>
                 <Typography variant="h4" gutterBottom>
-                    Session Expire
-            </Box>
-        </Container>
-        <Container maxWidth="sm" style={{ textAlign: 'center', marginTop: '20vh' }}>
-            <Box>
-                <Typography variant="h4" gutterBottom>
-                    Session Expire
-            </Box>
-        </Container>
-        <Container maxWidth="sm" style={{ textAlign: 'center', marginTop: '20vh' }}>
-            <Box>
-                <Typography variant="h4" gutterBottom>
-                    Session Expire
+                    Session Expired
+                </Typography>
+                <Typography variant="body1" gutterBottom>
+                    Your session has expired. Please log in again to continue.
+                </Typography>
+                <Button variant="contained" color="primary" onClick={handleLogin}>
+                    Go to Login
+                </Button>
             </Box>
         </Container>
     );

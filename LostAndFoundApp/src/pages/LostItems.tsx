@@ -9,7 +9,29 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
 const LostItems: React.FC = () => {
-    const [items, setItems] = useState<Item[]>([]
+    const [items, setItems] = useState<Item[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [locations, setLocations] = useState<string[]>([]);
+    const [categories, setCategories] = useState<string[]>([]);
+    const [page, setPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+    const [filtersOpen, setFiltersOpen] = useState(false);
+
+    // Fetch items based on filters and pagination
+    useEffect(() => {
+        const getItems = async () => {
+            setLoading(true);
+            try {
+                const { items: fetchedItems, totalPages } = await itemService.fetchLostItems({
+                    locations,
+                    categories,
+                    page,
+                });
+                setItems(fetchedItems);
+                setTotalPages(totalPages);
+            } catch (error) {
+                console.error("Error fetching items:", error);
+            } finally {
                 setLoading(false);
             }
         };
@@ -38,12 +60,6 @@ const LostItems: React.FC = () => {
                 </Typography>
             </Box>
 
-            <Pagination
-                            count={totalPages}
-                            page={page}
-                            onChange={(event, value) => setPage(value)}
-                            color="primary"
-                        />
             {/* Collapsible Filters Section */}
             <Collapse in={filtersOpen}>
                 <Box display="flex" justifyContent="center" gap={2} flexWrap="wrap" mb={4}>
@@ -87,12 +103,6 @@ const LostItems: React.FC = () => {
                 </Box>
             ) : (
                 <>
-                <Pagination
-                            count={totalPages}
-                            page={page}
-                            onChange={(event, value) => setPage(value)}
-                            color="primary"
-                        />
                     {items.length > 0 ? (
                         <Grid container spacing={4}>
                             {items.map((item) => (

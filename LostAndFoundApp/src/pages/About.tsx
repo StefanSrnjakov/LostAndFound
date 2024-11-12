@@ -24,6 +24,34 @@ const AboutPage: React.FC = () => {
         </Typography>
       </Box>
 
+      <Paper elevation={3} sx={{ p: 3, mt: 2, mb: 4 }}>
+        <Typography variant="body1" paragraph>
+          The Lost and Found App is a convenient, user-friendly platform designed to help users report, search, and connect over lost items.
+          Whether you've lost a personal belonging or found something valuable, this app provides a streamlined way for you to communicate with others in the community and help reunite people with their possessions.
+        </Typography>
+
+        <Box
+          component="img"
+          src="about-page.png" // Replace with your image URL
+          alt="Lost and Found concept"
+          onLoad={() => setLoaded(true)}
+          sx={{
+            width: '100%',
+            height: 'auto',
+            borderRadius: 2,
+            boxShadow: 3,
+            transition: 'opacity 0.5s ease-in-out',
+            opacity: loaded ? 1 : 0,
+          }}
+        />
+      </Paper>
+
+      <Box display="flex" alignItems="center" gap={2} mt={4}>
+        <Typography variant="h6" gutterBottom>
+          Key Features
+        </Typography>
+      </Box>
+
       <List>
         <ListItem>
           <ReportIcon color="primary" sx={{ mr: 2 }} />
