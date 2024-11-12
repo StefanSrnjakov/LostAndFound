@@ -5,11 +5,11 @@
 **LostAndFound** is a full-stack application designed to manage and report lost and found items. The project is divided into two main components:
 
 - **LostAndFoundApi** - The backend, handling data storage, processing, and API endpoints.
-- **LostAndFoundClient1** - The frontend client, providing the user interface.
+- **LostAndFoundClient** - The frontend client, providing the user interface.
 
 This project uses Node.js with Express for the backend and React for the frontend. Both sections have their own environment variables and dependencies, as well as a dedicated folder for standalone scripts.
 
-Ensure your .env files in both LostAndFoundApi and LostAndFoundClient1 directories have the necessary keys and values.You can also create your own database to not rely on our cluster.
+Ensure your .env files in both LostAndFoundApi and LostAndFoundClient directories have the necessary keys and values.You can also create your own database to not rely on our cluster.
 
 ---
 ## Installation and Setup
@@ -20,7 +20,7 @@ Ensure your .env files in both LostAndFoundApi and LostAndFoundClient1 directori
 
 ### Environment Variables
 
-Both `LostAndFoundApi` and `LostAndFoundClient1` have their own `.env` files containing environment-specific configurations (e.g., database URIs, API keys). Each folder includes a `.env.example` file for reference.
+Both `LostAndFoundApi` and `LostAndFoundClient` have their own `.env` files containing environment-specific configurations (e.g., database URIs, API keys). Each folder includes a `.env.example` file for reference.
 
 
 ### Environment Variables
@@ -30,7 +30,7 @@ Both `LostAndFoundApi` and `LostAndFoundClient1` have their own `.env` files con
 ```bash
 cd LostAndFoundApi
 npm install
-cd ../LostAndFoundClient1
+cd ../LostAndFoundClient
 npm install
 cd ../Scripts
 npm install
@@ -44,7 +44,7 @@ npm start
 
 4. Start the frontend client:
 ```bash
-cd ../LostAndFoundClient1
+cd ../LostAndFoundClient
 npm start
 ```
 
@@ -63,7 +63,7 @@ By default, the backend server runs on localhost:5000 and the frontend client on
   - **controllers**: Defines the main logic for handling API requests and responses.
   - **middleware**: Middleware functions for request validation and error handling.
 
-### LostAndFoundClient1 (Frontend)
+### LostAndFoundClient (Frontend)
 
 - **public**: Contains static assets, including the main `index.html` file.
 - **src**:
@@ -110,7 +110,7 @@ The following steps detail how to verify the app's functionality. Testing includ
 2. **Test each endpoint** using the methods and sample data provided above.
 3. **Validate error handling** by sending invalid requests to each endpoint.
 
-### Frontend Testing (LostAndFoundClient1)
+### Frontend Testing (LostAndFoundClient)
 
 - **Item Listing Page**:
   - **Expected Behavior**: All items from the database should display correctly.
